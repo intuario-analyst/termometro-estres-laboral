@@ -300,6 +300,25 @@
   .recs ul{ margin: 0; padding-left: 18px; }
   .recs li{ font-size: 14px; color: var(--ink-soft); margin-bottom: 8px; line-height: 1.5; }
 
+  .cta-box{
+    margin-top: 26px;
+    padding: 22px;
+    border-radius: 16px;
+    background: var(--teal-soft);
+    text-align: center;
+  }
+  .cta-text{
+    margin: 0 0 14px;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+  .btn-cta{
+    display: inline-block;
+    width: auto;
+    text-decoration: none;
+    padding: 13px 28px;
+  }
+
   .footer-note{
     margin-top: 22px;
     font-size: 12px;
@@ -374,6 +393,11 @@
     <div class="recs">
       <h3 id="recsTitle">Qué puedes hacer ahora</h3>
       <ul id="recsList"></ul>
+    </div>
+
+    <div class="cta-box" id="ctaBox">
+      <p class="cta-text" id="ctaText">Si quieres acompañamiento para gestionar esto, en Reset Mental podemos ayudarte.</p>
+      <a class="btn-primary btn-cta" id="ctaBtn" href="https://www.intuario.com/" target="_blank" rel="noopener noreferrer">Conocer Reset Mental</a>
     </div>
 
     <div class="nav-row">
@@ -514,7 +538,7 @@
     const totalMax = totals.exhaustion.max + totals.cynicism.max + totals.efficacy.max;
     const score = Math.round((totalSum / totalMax) * 100);
 
-    let level, tagClass, title, desc, recs, color;
+    let level, tagClass, title, desc, recs, color, ctaText, ctaBg;
     if(score < 34){
       level = "Leve"; tagClass = "tag-leve"; color = "var(--teal)";
       title = "Desgaste leve";
@@ -524,6 +548,8 @@
         "Revisa periódicamente cómo te sientes: el desgaste puede aumentar sin darte cuenta.",
         "Sigue cuidando el descanso, el sueño y el tiempo fuera del trabajo."
       ];
+      ctaText = "Si quieres reforzar tus hábitos de bienestar antes de que el desgaste avance, en Reset Mental podemos ayudarte.";
+      ctaBg = "#E1EEE7";
     } else if(score < 67){
       level = "Moderado"; tagClass = "tag-moderado"; color = "var(--amber)";
       title = "Desgaste moderado";
@@ -533,6 +559,8 @@
         "Prioriza pausas reales durante la jornada y protege tu tiempo de desconexión.",
         "Considera hablar con un profesional de salud mental si estas señales persisten más de unas semanas."
       ];
+      ctaText = "Este es un buen momento para actuar. En Reset Mental te ayudamos a gestionar el desgaste antes de que se intensifique.";
+      ctaBg = "#F4E4D2";
     } else {
       level = "Alto"; tagClass = "tag-alto"; color = "var(--rust)";
       title = "Desgaste alto";
@@ -542,6 +570,8 @@
         "Si es posible, conversa con tu responsable o RR.HH. sobre carga de trabajo, plazos o apoyo disponible.",
         "Busca apoyo en tu entorno cercano: no es necesario resolver esto en soledad."
       ];
+      ctaText = "Un nivel alto de desgaste merece atención pronto. En Reset Mental ofrecemos acompañamiento profesional para ayudarte a recuperarte.";
+      ctaBg = "#F1DAD3";
     }
 
     document.getElementById('resultTag').textContent = level;
@@ -576,6 +606,9 @@
       li.textContent = r;
       recsList.appendChild(li);
     });
+
+    document.getElementById('ctaText').textContent = ctaText;
+    document.getElementById('ctaBox').style.background = ctaBg;
 
     document.getElementById('topEyebrow').textContent = "Resultado de tu autoevaluación";
     show('screen-result');
