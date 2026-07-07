@@ -347,7 +347,7 @@
     <p>Un cuestionario orientativo para hacerte una idea de cómo está tu nivel de estrés y burnout.</p>
 
     <ul class="intro-list">
-      <li>16 preguntas</li>
+      <li>20 preguntas</li>
       <li>Sin registro ni envío de datos: todo se calcula en tu navegador.</li>
       <li>Resultado orientativo: Esta herramienta ofrece una orientación inicial, no un diagnóstico clínico. Si sientes que el estrés está afectando seriamente tu salud o tu vida diaria, consulta los servicios de Reset Mental que ofrecemos para ti.</li>
     </ul>
@@ -420,22 +420,31 @@
 
   // dim: 'exhaustion' | 'cynicism' | 'efficacy' (efficacy is reverse-scored)
   const QUESTIONS = [
-    { text: "Termino la jornada laboral sintiéndome completamente agotado/a.", dim: "exhaustion" },
-    { text: "Me cuesta encontrar energía para empezar un nuevo día de trabajo.", dim: "exhaustion" },
-    { text: "Siento que las exigencias de mi trabajo superan lo que puedo dar.", dim: "exhaustion" },
-    { text: "Aunque descanse, sigo sintiéndome cansado/a física o mentalmente.", dim: "exhaustion" },
-    { text: "Últimamente aguanto peor la presión en el trabajo que antes.", dim: "exhaustion" },
-    { text: "Me cuesta dejar de pensar en el trabajo cuando no estoy trabajando.", dim: "exhaustion" },
-    { text: "Ya no siento la misma ilusión por mi trabajo que sentía antes.", dim: "cynicism" },
-    { text: "Trato a mis compañeros o clientes con más distancia que antes.", dim: "cynicism" },
-    { text: "Me cuesta ver para qué sirve realmente lo que hago en mi trabajo.", dim: "cynicism" },
-    { text: "Me da igual si mi trabajo aporta algo positivo o no.", dim: "cynicism" },
-    { text: "Prefiero no implicarme demasiado en las tareas o relaciones del trabajo.", dim: "cynicism" },
-    { text: "Siento que estoy haciendo bien mi trabajo.", dim: "efficacy" },
-    { text: "Cuando surge un problema en el trabajo, me siento capaz de resolverlo.", dim: "efficacy" },
-    { text: "Estoy satisfecho/a con lo que consigo en mi trabajo.", dim: "efficacy" },
-    { text: "Siento que mi trabajo tiene valor o sentido.", dim: "efficacy" },
-    { text: "Confío en que puedo afrontar las exigencias de mi puesto.", dim: "efficacy" }
+    // Agotamiento / estrés (inspirado en MBI-AE y PSS)
+    { text: "Cuando termino mi jornada de trabajo, siento que no me queda energía.", dim: "exhaustion" },
+    { text: "Al empezar un nuevo día de trabajo, ya me siento agotado/a antes de comenzar.", dim: "exhaustion" },
+    { text: "Siento que la intensidad de mi trabajo me deja exhausto/a.", dim: "exhaustion" },
+    { text: "Noto que mi trabajo me va desgastando con el paso del tiempo.", dim: "exhaustion" },
+    { text: "Me siento al límite de lo que puedo dar en mi trabajo.", dim: "exhaustion" },
+    { text: "En el último mes, me he sentido afectado/a por imprevistos que no esperaba.", dim: "exhaustion" },
+    { text: "En el último mes, he sentido que no podía con todo lo que tenía que hacer.", dim: "exhaustion" },
+    { text: "En el último mes, he sentido que las dificultades se acumulan más de lo que puedo manejar.", dim: "exhaustion" },
+
+    // Distancia / cinismo (inspirado en MBI-Despersonalización)
+    { text: "Siento que trato a las personas con las que trabajo de forma más distante o impersonal que antes.", dim: "cynicism" },
+    { text: "Me preocupa notar que este trabajo me está volviendo más frío/a o duro/a emocionalmente.", dim: "cynicism" },
+    { text: "Siento que realmente ya no me importa demasiado lo que les pase a las personas con las que trabajo.", dim: "cynicism" },
+    { text: "Ya no siento la misma cercanía o interés por las personas con las que trabajo que sentía antes.", dim: "cynicism" },
+    { text: "Siento que se me atribuyen problemas o culpas que no dependen solo de mí.", dim: "cynicism" },
+
+    // Realización personal / sensación de control (inspirado en MBI-RP y PSS, puntuación inversa)
+    { text: "Siento que puedo entender con facilidad a las personas con las que trabajo.", dim: "efficacy" },
+    { text: "Siento que resuelvo con eficacia los problemas que surgen en mi trabajo.", dim: "efficacy" },
+    { text: "Siento que estoy influyendo positivamente en otras personas a través de mi trabajo.", dim: "efficacy" },
+    { text: "Me siento con energía y motivación en mi trabajo.", dim: "efficacy" },
+    { text: "Siento que consigo cosas valiosas a través de mi trabajo.", dim: "efficacy" },
+    { text: "En el último mes, he sentido que tenía bajo control mis responsabilidades.", dim: "efficacy" },
+    { text: "Confío en mi capacidad para afrontar los retos de mi trabajo.", dim: "efficacy" }
   ];
 
   const DIM_LABELS = {
