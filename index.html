@@ -70,284 +70,140 @@
     box-shadow: 0 1px 2px rgba(30,43,38,0.04), 0 12px 32px rgba(30,43,38,0.06);
   }
 
-  /* Gauge */
-  .gauge-wrap{
-    margin: 8px 0 28px;
-  }
+  .gauge-wrap{ margin: 8px 0 28px; }
   .gauge-track{
-    position: relative;
-    height: 10px;
-    border-radius: 6px;
-    background: var(--teal-soft);
-    overflow: hidden;
+    position: relative; height: 10px; border-radius: 6px;
+    background: var(--teal-soft); overflow: hidden;
   }
   .gauge-fill{
-    position:absolute;
-    left:0; top:0; bottom:0;
-    width: 0%;
+    position:absolute; left:0; top:0; bottom:0; width: 0%;
     border-radius: 6px;
     background: linear-gradient(90deg, var(--teal), var(--teal));
     transition: width 0.5s cubic-bezier(.4,0,.2,1), background 0.5s ease;
   }
   .gauge-meta{
-    display:flex;
-    justify-content: space-between;
-    margin-top: 8px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    color: var(--ink-soft);
+    display:flex; justify-content: space-between; margin-top: 8px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-soft);
   }
 
-  /* Intro screen */
-  .intro-list{
-    margin: 20px 0 28px;
-    padding: 0;
-    list-style: none;
-  }
+  .intro-list{ margin: 20px 0 28px; padding: 0; list-style: none; }
   .intro-list li{
-    display:flex;
-    gap: 12px;
-    align-items: flex-start;
-    font-size: 14px;
-    color: var(--ink-soft);
-    margin-bottom: 10px;
-    line-height: 1.5;
+    display:flex; gap: 12px; align-items: flex-start;
+    font-size: 14px; color: var(--ink-soft); margin-bottom: 10px; line-height: 1.5;
   }
   .intro-list li::before{
-    content: "";
-    flex: none;
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--teal);
-    margin-top: 7px;
+    content: ""; flex: none; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--teal); margin-top: 7px;
   }
 
   .disclaimer{
-    font-size: 12.5px;
-    color: var(--ink-soft);
-    background: var(--bg);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 14px 16px;
-    line-height: 1.5;
+    font-size: 12.5px; color: var(--ink-soft); background: var(--bg);
+    border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; line-height: 1.5;
   }
 
   button{
-    font-family: 'Work Sans', sans-serif;
-    font-weight: 500;
-    cursor: pointer;
-    border: none;
-    border-radius: 999px;
+    font-family: 'Work Sans', sans-serif; font-weight: 500; cursor: pointer;
+    border: none; border-radius: 999px;
     transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
   }
   button:active{ transform: scale(0.98); }
   button:focus-visible{ outline: 3px solid var(--teal); outline-offset: 2px; }
 
   .btn-primary{
-    background: var(--ink);
-    color: #fff;
-    font-size: 15px;
-    padding: 14px 26px;
-    width: 100%;
+    background: var(--ink); color: #fff; font-size: 15px; padding: 14px 26px; width: 100%;
   }
   .btn-primary:hover{ background: #142019; }
   .btn-primary:disabled{ background: #C7CFC9; cursor: not-allowed; }
 
   .btn-ghost{
-    background: transparent;
-    color: var(--ink-soft);
-    font-size: 14px;
-    padding: 12px 18px;
-    border: 1px solid var(--line);
+    background: transparent; color: var(--ink-soft); font-size: 14px;
+    padding: 12px 18px; border: 1px solid var(--line);
   }
   .btn-ghost:hover{ border-color: var(--ink-soft); color: var(--ink); }
 
-  .nav-row{
-    display:flex;
-    gap: 12px;
-    margin-top: 24px;
-  }
+  .nav-row{ display:flex; gap: 12px; margin-top: 24px; }
   .nav-row .btn-primary{ flex: 1; }
 
-  /* Question screen */
-  .q-eyebrow{
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    color: var(--teal);
-    letter-spacing: 0.06em;
-  }
+  .q-eyebrow{ font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--teal); letter-spacing: 0.06em; }
   .q-text{
-    font-family: 'Fraunces', serif;
-    font-size: clamp(20px, 3.6vw, 25px);
-    font-weight: 500;
-    line-height: 1.3;
-    margin: 10px 0 26px;
+    font-family: 'Fraunces', serif; font-size: clamp(20px, 3.6vw, 25px);
+    font-weight: 500; line-height: 1.3; margin: 10px 0 26px;
   }
 
-  .options{
-    display:flex;
-    flex-direction: column;
-    gap: 10px;
-  }
+  .options{ display:flex; flex-direction: column; gap: 10px; }
   .option{
-    display:flex;
-    align-items:center;
-    gap: 14px;
-    padding: 14px 16px;
-    border-radius: 14px;
-    border: 1.5px solid var(--line);
-    background: var(--surface);
-    cursor: pointer;
-    text-align: left;
-    font-size: 15px;
-    color: var(--ink);
+    display:flex; align-items:center; gap: 14px; padding: 14px 16px;
+    border-radius: 14px; border: 1.5px solid var(--line); background: var(--surface);
+    cursor: pointer; text-align: left; font-size: 15px; color: var(--ink);
   }
   .option .dot{
-    flex: none;
-    width: 20px; height: 20px;
-    border-radius: 50%;
-    border: 1.5px solid var(--ink-soft);
-    position: relative;
+    flex: none; width: 20px; height: 20px; border-radius: 50%;
+    border: 1.5px solid var(--ink-soft); position: relative;
   }
   .option .dot::after{
-    content:"";
-    position:absolute; inset: 4px;
-    border-radius: 50%;
-    background: var(--teal);
-    transform: scale(0);
-    transition: transform 0.15s ease;
+    content:""; position:absolute; inset: 4px; border-radius: 50%;
+    background: var(--teal); transform: scale(0); transition: transform 0.15s ease;
   }
   .option:hover{ border-color: var(--teal); }
-  .option.selected{
-    border-color: var(--teal);
-    background: var(--teal-soft);
-  }
+  .option.selected{ border-color: var(--teal); background: var(--teal-soft); }
   .option.selected .dot{ border-color: var(--teal); }
   .option.selected .dot::after{ transform: scale(1); }
 
-  /* Results */
   .result-tag{
-    display:inline-block;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 6px 14px;
-    border-radius: 999px;
-    margin-bottom: 16px;
+    display:inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+    letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 14px;
+    border-radius: 999px; margin-bottom: 16px;
   }
   .tag-leve{ background: #E1EEE7; color: #236B54; }
   .tag-moderado{ background: #F4E4D2; color: #9A5A22; }
   .tag-alto{ background: #F1DAD3; color: #93392A; }
 
   .result-title{
-    font-family:'Fraunces', serif;
-    font-weight: 600;
-    font-size: clamp(26px, 5vw, 34px);
-    margin: 0 0 12px;
+    font-family:'Fraunces', serif; font-weight: 600; font-size: clamp(26px, 5vw, 34px); margin: 0 0 12px;
   }
 
-  .score-big{
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 42px;
-    font-weight: 500;
-  }
-  .score-row{
-    display:flex;
-    align-items:baseline;
-    gap: 10px;
-    margin: 4px 0 20px;
-  }
-  .score-of{
-    font-family: 'IBM Plex Mono', monospace;
-    color: var(--ink-soft);
-    font-size: 14px;
-  }
+  .score-big{ font-family: 'IBM Plex Mono', monospace; font-size: 42px; font-weight: 500; }
+  .score-row{ display:flex; align-items:baseline; gap: 10px; margin: 4px 0 20px; }
+  .score-of{ font-family: 'IBM Plex Mono', monospace; color: var(--ink-soft); font-size: 14px; }
 
-  .subscales{
-    margin: 22px 0 8px;
-    display:flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  .subscale-row .label-row{
-    display:flex;
-    justify-content: space-between;
-    font-size: 13px;
-    margin-bottom: 6px;
-  }
+  .subscales{ margin: 22px 0 8px; display:flex; flex-direction: column; gap: 16px; }
+  .subscale-row .label-row{ display:flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px; }
   .subscale-row .label-row span:first-child{ color: var(--ink); font-weight: 500; }
   .subscale-row .label-row span:last-child{ font-family: 'IBM Plex Mono', monospace; color: var(--ink-soft); }
-  .subscale-track{
-    height: 8px;
-    border-radius: 6px;
-    background: var(--bg);
-    overflow: hidden;
-  }
+  .subscale-hint{ font-size: 11.5px; color: var(--ink-soft); margin-top: 4px; }
+  .subscale-track{ height: 8px; border-radius: 6px; background: var(--bg); overflow: hidden; }
   .subscale-fill{ height: 100%; border-radius: 6px; }
 
-  .recs{
-    margin-top: 26px;
-    padding-top: 22px;
-    border-top: 1px solid var(--line);
-  }
-  .recs h3{
-    font-family:'Fraunces', serif;
-    font-size: 18px;
-    font-weight: 600;
-    margin: 0 0 12px;
-  }
+  .recs{ margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); }
+  .recs h3{ font-family:'Fraunces', serif; font-size: 18px; font-weight: 600; margin: 0 0 12px; }
   .recs ul{ margin: 0; padding-left: 18px; }
   .recs li{ font-size: 14px; color: var(--ink-soft); margin-bottom: 8px; line-height: 1.5; }
 
-  .cta-box{
-    margin-top: 26px;
-    padding: 22px;
-    border-radius: 16px;
-    background: var(--teal-soft);
-    text-align: center;
-  }
-  .cta-text{
-    margin: 0 0 14px;
-    color: var(--ink);
-    font-size: 14.5px;
-  }
-  .btn-cta{
-    display: inline-block;
-    width: auto;
-    text-decoration: none;
-    padding: 13px 28px;
-  }
+  .cta-box{ margin-top: 26px; padding: 22px; border-radius: 16px; background: var(--teal-soft); text-align: center; }
+  .cta-text{ margin: 0 0 14px; color: var(--ink); font-size: 14.5px; }
+  .btn-cta{ display: inline-block; width: auto; text-decoration: none; padding: 13px 28px; }
 
-  .footer-note{
-    margin-top: 22px;
-    font-size: 12px;
-    color: var(--ink-soft);
-  }
+  .footer-note{ margin-top: 22px; font-size: 12px; color: var(--ink-soft); }
 
   .hidden{ display:none; }
 
-  @media (prefers-reduced-motion: reduce){
-    * { transition: none !important; }
-  }
-
-  @media (max-width: 480px){
-    .card{ padding: 24px 20px; border-radius: 16px; }
-  }
+  @media (prefers-reduced-motion: reduce){ * { transition: none !important; } }
+  @media (max-width: 480px){ .card{ padding: 24px 20px; border-radius: 16px; } }
 </style>
 </head>
 <body>
 <div class="app">
 
-  <div class="eyebrow" id="topEyebrow">Autoevaluación · 5 minutos</div>
+  <div class="eyebrow" id="topEyebrow">Autoevaluación · 5-6 minutos</div>
 
   <!-- INTRO -->
   <section class="card" id="screen-intro">
     <h1>Termómetro de estrés laboral</h1>
-    <p>Un cuestionario orientativo para hacerte una idea de cómo está tu nivel de estrés y burnout.</p>
+    <p>Un cuestionario orientativo para hacerte una idea de cómo está tu nivel de estrés y burnout, combinando cuatro áreas clave.</p>
 
     <ul class="intro-list">
-      <li>20 preguntas</li>
+      <li>Preguntas breves, se responde en aproximadamente 5-6 minutos.</li>
+      <li>Combina cuatro áreas: estrés percibido, burnout, bienestar emocional y calidad de sueño.</li>
       <li>Sin registro ni envío de datos: todo se calcula en tu navegador.</li>
       <li>Resultado orientativo: Esta herramienta ofrece una orientación inicial, no un diagnóstico clínico. Si sientes que el estrés está afectando seriamente tu salud o tu vida diaria, consulta los servicios de Reset Mental que ofrecemos para ti.</li>
     </ul>
@@ -362,8 +218,8 @@
     <div class="gauge-wrap">
       <div class="gauge-track"><div class="gauge-fill" id="gaugeFill"></div></div>
       <div class="gauge-meta">
-        <span id="qCounter">Pregunta 1 de 16</span>
-        <span id="dimLabel">Agotamiento</span>
+        <span id="qCounter">Pregunta 1 de 39</span>
+        <span id="dimLabel">Estrés percibido</span>
       </div>
     </div>
 
@@ -385,7 +241,7 @@
 
     <div class="score-row">
       <span class="score-big" id="scoreBig">0</span>
-      <span class="score-of">/ 100 · índice de desgaste</span>
+      <span class="score-of">/ 100 · índice general de desgaste</span>
     </div>
 
     <div class="subscales" id="subscalesWrap"></div>
@@ -410,48 +266,127 @@
 </div>
 
 <script>
-  const SCALE = [
-    { v: 0, label: "Nunca" },
-    { v: 1, label: "Rara vez" },
-    { v: 2, label: "Algunas veces" },
-    { v: 3, label: "Frecuentemente" },
-    { v: 4, label: "Siempre" }
-  ];
+  // ---------- Banco de preguntas ----------
+  // Cada pregunta pertenece a un "instrumento": stress, burnout_ae, burnout_d,
+  // burnout_rp (protector, se invierte al calcular malestar), wellbeing (protector),
+  // sleep. Cada opción trae su propio valor de puntuación.
 
-  // dim: 'exhaustion' | 'cynicism' | 'efficacy' (efficacy is reverse-scored)
-  const QUESTIONS = [
-    // Agotamiento / estrés (inspirado en MBI-AE y PSS)
-    { text: "Cuando termino mi jornada de trabajo, siento que no me queda energía.", dim: "exhaustion" },
-    { text: "Al empezar un nuevo día de trabajo, ya me siento agotado/a antes de comenzar.", dim: "exhaustion" },
-    { text: "Siento que la intensidad de mi trabajo me deja exhausto/a.", dim: "exhaustion" },
-    { text: "Noto que mi trabajo me va desgastando con el paso del tiempo.", dim: "exhaustion" },
-    { text: "Me siento al límite de lo que puedo dar en mi trabajo.", dim: "exhaustion" },
-    { text: "En el último mes, me he sentido afectado/a por imprevistos que no esperaba.", dim: "exhaustion" },
-    { text: "En el último mes, he sentido que no podía con todo lo que tenía que hacer.", dim: "exhaustion" },
-    { text: "En el último mes, he sentido que las dificultades se acumulan más de lo que puedo manejar.", dim: "exhaustion" },
-
-    // Distancia / cinismo (inspirado en MBI-Despersonalización)
-    { text: "Siento que trato a las personas con las que trabajo de forma más distante o impersonal que antes.", dim: "cynicism" },
-    { text: "Me preocupa notar que este trabajo me está volviendo más frío/a o duro/a emocionalmente.", dim: "cynicism" },
-    { text: "Siento que realmente ya no me importa demasiado lo que les pase a las personas con las que trabajo.", dim: "cynicism" },
-    { text: "Ya no siento la misma cercanía o interés por las personas con las que trabajo que sentía antes.", dim: "cynicism" },
-    { text: "Siento que se me atribuyen problemas o culpas que no dependen solo de mí.", dim: "cynicism" },
-
-    // Realización personal / sensación de control (inspirado en MBI-RP y PSS, puntuación inversa)
-    { text: "Siento que puedo entender con facilidad a las personas con las que trabajo.", dim: "efficacy" },
-    { text: "Siento que resuelvo con eficacia los problemas que surgen en mi trabajo.", dim: "efficacy" },
-    { text: "Siento que estoy influyendo positivamente en otras personas a través de mi trabajo.", dim: "efficacy" },
-    { text: "Me siento con energía y motivación en mi trabajo.", dim: "efficacy" },
-    { text: "Siento que consigo cosas valiosas a través de mi trabajo.", dim: "efficacy" },
-    { text: "En el último mes, he sentido que tenía bajo control mis responsabilidades.", dim: "efficacy" },
-    { text: "Confío en mi capacidad para afrontar los retos de mi trabajo.", dim: "efficacy" }
-  ];
-
-  const DIM_LABELS = {
-    exhaustion: "Agotamiento",
-    cynicism: "Distancia / cinismo",
-    efficacy: "Eficacia percibida"
+  const INSTRUMENT_LABELS = {
+    stress: "Estrés percibido",
+    burnout_ae: "Burnout · Agotamiento",
+    burnout_d: "Burnout · Distancia emocional",
+    burnout_rp: "Burnout · Realización personal",
+    wellbeing: "Bienestar",
+    sleep: "Calidad del sueño"
   };
+
+  const OPT_FREQ_DIRECT = [
+    { label: "Nunca", value: 0 },
+    { label: "Casi nunca", value: 1 },
+    { label: "De vez en cuando", value: 2 },
+    { label: "A menudo", value: 3 },
+    { label: "Muy a menudo", value: 4 }
+  ];
+  const OPT_FREQ_REVERSE = [
+    { label: "Nunca", value: 4 },
+    { label: "Casi nunca", value: 3 },
+    { label: "De vez en cuando", value: 2 },
+    { label: "A menudo", value: 1 },
+    { label: "Muy a menudo", value: 0 }
+  ];
+  const OPT_BURNOUT = [
+    { label: "Nunca", value: 0 },
+    { label: "Algunas veces al año", value: 1 },
+    { label: "Algunas veces al mes", value: 2 },
+    { label: "Algunas veces a la semana", value: 3 },
+    { label: "Diariamente", value: 4 }
+  ];
+  const OPT_WELLBEING = [
+    { label: "Nunca", value: 0 },
+    { label: "De vez en cuando", value: 1 },
+    { label: "Menos de la mitad del tiempo", value: 2 },
+    { label: "Más de la mitad del tiempo", value: 3 },
+    { label: "La mayor parte del tiempo", value: 4 },
+    { label: "Todo el tiempo", value: 5 }
+  ];
+  const OPT_SLEEP_FREQ = [
+    { label: "Ninguna vez en el último mes", value: 0 },
+    { label: "Menos de una vez a la semana", value: 1 },
+    { label: "Una o dos veces a la semana", value: 2 },
+    { label: "Tres o más veces a la semana", value: 3 }
+  ];
+
+  const QUESTIONS = [
+    // ---- Estrés percibido (14) ----
+    { instrument: "stress", text: "En el último mes, ¿qué tan seguido te ha afectado algo que pasó sin que lo esperaras?", options: OPT_FREQ_DIRECT },
+    { instrument: "stress", text: "En el último mes, ¿qué tan seguido has sentido que no puedes controlar las cosas importantes de tu vida?", options: OPT_FREQ_DIRECT },
+    { instrument: "stress", text: "En el último mes, ¿qué tan seguido te has sentido nervioso/a o estresado/a?", options: OPT_FREQ_DIRECT },
+    { instrument: "stress", text: "En el último mes, ¿qué tan seguido has podido resolver bien los pequeños problemas del día a día?", options: OPT_FREQ_REVERSE },
+    { instrument: "stress", text: "En el último mes, ¿qué tan seguido sientes que has sabido afrontar los cambios importantes en tu vida?", options: OPT_FREQ_REVERSE },
+    { instrument: "stress", text: "En el último mes, ¿qué tan seguido te has sentido seguro/a de tu capacidad para resolver tus problemas personales?", options: OPT_FREQ_REVERSE },
+    { instrument: "stress", text: "En el último mes, ¿qué tan seguido has sentido que las cosas te están saliendo bien?", options: OPT_FREQ_REVERSE },
+    { instrument: "stress", text: "En el último mes, ¿qué tan seguido has sentido que no puedes con todo lo que tienes que hacer?", options: OPT_FREQ_DIRECT },
+    { instrument: "stress", text: "En el último mes, ¿qué tan seguido has logrado controlar las dificultades de tu vida?", options: OPT_FREQ_REVERSE },
+    { instrument: "stress", text: "En el último mes, ¿qué tan seguido has sentido que tienes las cosas bajo control?", options: OPT_FREQ_REVERSE },
+    { instrument: "stress", text: "En el último mes, ¿qué tan seguido te has enojado por cosas que pasaron y que estaban fuera de tu control?", options: OPT_FREQ_DIRECT },
+    { instrument: "stress", text: "En el último mes, ¿qué tan seguido has pensado en todo lo que te falta por hacer?", options: OPT_FREQ_DIRECT },
+    { instrument: "stress", text: "En el último mes, ¿qué tan seguido has sentido que controlas bien cómo usas tu tiempo?", options: OPT_FREQ_REVERSE },
+    { instrument: "stress", text: "En el último mes, ¿qué tan seguido has sentido que los problemas se te acumulan tanto que sientes que no puedes con ellos?", options: OPT_FREQ_DIRECT },
+
+    // ---- Burnout · Agotamiento emocional (5) ----
+    { instrument: "burnout_ae", text: "Cuando termino mi jornada de trabajo, siento que no me queda nada de energía.", options: OPT_BURNOUT },
+    { instrument: "burnout_ae", text: "Me cuesta trabajo levantarme y enfrentar un nuevo día laboral porque ya me siento cansado/a de solo pensarlo.", options: OPT_BURNOUT },
+    { instrument: "burnout_ae", text: "Siento que trabajar todo el día con otras personas (compañeros, clientes, alumnos, pacientes) me deja agotado/a.", options: OPT_BURNOUT },
+    { instrument: "burnout_ae", text: "Siento que mi trabajo me está desgastando poco a poco.", options: OPT_BURNOUT },
+    { instrument: "burnout_ae", text: "Siento que estoy al límite de lo que puedo dar en mi trabajo.", options: OPT_BURNOUT },
+
+    // ---- Burnout · Distancia emocional / despersonalización (3) ----
+    { instrument: "burnout_d", text: "Siento que estoy tratando a algunas personas de mi trabajo como un trámite más, sin verlas realmente como personas.", options: OPT_BURNOUT },
+    { instrument: "burnout_d", text: "Me preocupa notar que me estoy volviendo más duro/a o insensible con la gente por causa del trabajo.", options: OPT_BURNOUT },
+    { instrument: "burnout_d", text: "Siento que realmente ya no me importa mucho lo que le pase a las personas a las que atiendo en mi trabajo.", options: OPT_BURNOUT },
+
+    // ---- Burnout · Realización personal (protector, 5) ----
+    { instrument: "burnout_rp", text: "Siento que puedo entender con facilidad las necesidades o problemas de las personas con las que trabajo.", options: OPT_BURNOUT },
+    { instrument: "burnout_rp", text: "Siento que resuelvo con mucha efectividad los problemas que se me presentan en el trabajo.", options: OPT_BURNOUT },
+    { instrument: "burnout_rp", text: "Siento que estoy teniendo un impacto positivo en la vida de otras personas a través de mi trabajo.", options: OPT_BURNOUT },
+    { instrument: "burnout_rp", text: "Me siento con mucha energía y motivación cuando estoy trabajando.", options: OPT_BURNOUT },
+    { instrument: "burnout_rp", text: "Siento que logro cosas valiosas a través de mi trabajo.", options: OPT_BURNOUT },
+
+    // ---- Bienestar, últimas dos semanas (protector, 5) ----
+    { instrument: "wellbeing", text: "En las últimas dos semanas, me he sentido alegre y de buen humor.", options: OPT_WELLBEING },
+    { instrument: "wellbeing", text: "En las últimas dos semanas, me he sentido tranquilo/a y relajado/a.", options: OPT_WELLBEING },
+    { instrument: "wellbeing", text: "En las últimas dos semanas, me he sentido con energía y con ganas de hacer cosas.", options: OPT_WELLBEING },
+    { instrument: "wellbeing", text: "En las últimas dos semanas, me he despertado sintiéndome fresco/a y descansado/a.", options: OPT_WELLBEING },
+    { instrument: "wellbeing", text: "En las últimas dos semanas, mi día a día ha estado lleno de cosas que me interesan.", options: OPT_WELLBEING },
+
+    // ---- Calidad del sueño (7) ----
+    { instrument: "sleep", text: "En el último mes, en general, ¿cómo calificarías la calidad de tu sueño?", options: [
+      { label: "Bastante buena", value: 0 },
+      { label: "Buena", value: 1 },
+      { label: "Mala", value: 2 },
+      { label: "Bastante mala", value: 3 }
+    ]},
+    { instrument: "sleep", text: "En el último mes, ¿qué tan seguido te ha costado quedarte dormido/a en los primeros 30 minutos?", options: OPT_SLEEP_FREQ },
+    { instrument: "sleep", text: "¿Cuántas horas sueles dormir en una noche normal?", options: [
+      { label: "Más de 7 horas", value: 0 },
+      { label: "Entre 6 y 7 horas", value: 1 },
+      { label: "Entre 5 y 6 horas", value: 2 },
+      { label: "Menos de 5 horas", value: 3 }
+    ]},
+    { instrument: "sleep", text: "En el último mes, ¿qué tan seguido te has despertado durante la madrugada o de noche?", options: OPT_SLEEP_FREQ },
+    { instrument: "sleep", text: "En el último mes, ¿qué tan seguido has tomado algún medicamento (recetado o por tu cuenta) para poder dormir?", options: OPT_SLEEP_FREQ },
+    { instrument: "sleep", text: "En el último mes, ¿qué tan seguido has sentido sueño mientras manejas, comes o haces alguna otra actividad del día?", options: OPT_SLEEP_FREQ },
+    { instrument: "sleep", text: "En el último mes, ¿qué tanto problema te ha costado tener ánimo para tus actividades diarias por falta de sueño?", options: [
+      { label: "Ningún problema", value: 0 },
+      { label: "Un problema muy ligero", value: 1 },
+      { label: "Algo de problema", value: 2 },
+      { label: "Un gran problema", value: 3 }
+    ]}
+  ];
+
+  QUESTIONS.forEach(q => { q.maxVal = Math.max(...q.options.map(o => o.value)); });
+
+  const PROTECTIVE = { burnout_rp: true, wellbeing: true }; // valor alto = protector (se invierte en el índice de malestar)
 
   let current = 0;
   let answers = new Array(QUESTIONS.length).fill(null);
@@ -471,10 +406,9 @@
   function renderQuestion(){
     const q = QUESTIONS[current];
     document.getElementById('qCounter').textContent = `Pregunta ${current+1} de ${QUESTIONS.length}`;
-    document.getElementById('dimLabel').textContent = DIM_LABELS[q.dim];
+    document.getElementById('dimLabel').textContent = INSTRUMENT_LABELS[q.instrument];
     document.getElementById('qText').textContent = q.text;
 
-    // live gauge: mezcla de avance + tendencia de estrés acumulada
     const progressPct = (current / QUESTIONS.length) * 100;
     const gauge = document.getElementById('gaugeFill');
     gauge.style.width = progressPct + "%";
@@ -482,12 +416,12 @@
 
     const wrap = document.getElementById('optionsWrap');
     wrap.innerHTML = "";
-    SCALE.forEach(opt => {
+    q.options.forEach(opt => {
       const btn = document.createElement('button');
       btn.type = "button";
-      btn.className = "option" + (answers[current] === opt.v ? " selected" : "");
+      btn.className = "option" + (answers[current] === opt.value ? " selected" : "");
       btn.innerHTML = `<span class="dot"></span><span>${opt.label}</span>`;
-      btn.onclick = () => selectAnswer(opt.v);
+      btn.onclick = () => selectAnswer(opt.value);
       wrap.appendChild(btn);
     });
 
@@ -497,16 +431,15 @@
   }
 
   function trendColor(){
-    // calcula un promedio provisional del desgaste con lo respondido hasta ahora
-    const answered = answers.filter(a => a !== null);
-    if(answered.length === 0) return "var(--teal)";
+    const answeredIdx = answers.map((a,i)=>a===null?null:i).filter(i=>i!==null);
+    if(answeredIdx.length === 0) return "var(--teal)";
     let sum = 0;
-    answers.forEach((a, i) => {
-      if(a === null) return;
-      const dim = QUESTIONS[i].dim;
-      sum += dim === "efficacy" ? (4 - a) : a;
+    answeredIdx.forEach(i => {
+      const q = QUESTIONS[i];
+      const frac = q.maxVal === 0 ? 0 : answers[i] / q.maxVal;
+      sum += PROTECTIVE[q.instrument] ? (1 - frac) : frac;
     });
-    const avgPct = (sum / (answered.length * 4)) * 100;
+    const avgPct = (sum / answeredIdx.length) * 100;
     if(avgPct < 34) return "var(--teal)";
     if(avgPct < 67) return "var(--amber)";
     return "var(--rust)";
@@ -534,27 +467,35 @@
     }
   }
 
-  function showResults(){
-    const totals = { exhaustion: {sum:0, max:0}, cynicism: {sum:0, max:0}, efficacy: {sum:0, max:0} };
+  function groupPct(instrument){
+    let sum = 0, max = 0;
     QUESTIONS.forEach((q, i) => {
-      const raw = answers[i];
-      const scored = q.dim === "efficacy" ? (4 - raw) : raw;
-      totals[q.dim].sum += scored;
-      totals[q.dim].max += 4;
+      if(q.instrument !== instrument) return;
+      sum += answers[i];
+      max += q.maxVal;
     });
+    return max === 0 ? 0 : Math.round((sum / max) * 100);
+  }
 
-    const totalSum = totals.exhaustion.sum + totals.cynicism.sum + totals.efficacy.sum;
-    const totalMax = totals.exhaustion.max + totals.cynicism.max + totals.efficacy.max;
-    const score = Math.round((totalSum / totalMax) * 100);
+  function showResults(){
+    const stressPct = groupPct("stress");
+    const aePct = groupPct("burnout_ae");
+    const dPct = groupPct("burnout_d");
+    const rpPct = groupPct("burnout_rp");
+    const wellbeingPct = groupPct("wellbeing");
+    const sleepPct = groupPct("sleep");
+
+    const burnoutPct = Math.round((aePct + dPct + (100 - rpPct)) / 3);
+    const score = Math.round((stressPct + burnoutPct + (100 - wellbeingPct) + sleepPct) / 4);
 
     let level, tagClass, title, desc, recs, color, ctaText, ctaBg;
     if(score < 34){
       level = "Leve"; tagClass = "tag-leve"; color = "var(--teal)";
       title = "Desgaste leve";
-      desc = "Tus respuestas muestran un nivel de desgaste bajo. Hay señales puntuales de cansancio, pero en general conservas energía, motivación y sensación de eficacia en tu trabajo.";
+      desc = "Tu perfil general muestra un nivel de desgaste bajo entre estrés, burnout, bienestar y sueño. Hay señales puntuales de cansancio, pero en general conservas energía, buen ánimo y buen descanso.";
       recs = [
-        "Mantén las pausas y límites que ya te están funcionando.",
-        "Revisa periódicamente cómo te sientes: el desgaste puede aumentar sin darte cuenta.",
+        "Mantén las pausas, límites y hábitos de sueño que ya te están funcionando.",
+        "Revisa periódicamente cómo te sientes en estas cuatro áreas: el desgaste puede aumentar sin que lo notes.",
         "Sigue cuidando el descanso, el sueño y el tiempo fuera del trabajo."
       ];
       ctaText = "Si quieres reforzar tus hábitos de bienestar antes de que el desgaste avance, en Reset Mental podemos ayudarte.";
@@ -562,10 +503,10 @@
     } else if(score < 67){
       level = "Moderado"; tagClass = "tag-moderado"; color = "var(--amber)";
       title = "Desgaste moderado";
-      desc = "Muestras un nivel intermedio de desgaste: probablemente notas más cansancio, algo de distancia emocional o una caída en tu sensación de eficacia. Es un buen momento para actuar antes de que se intensifique.";
+      desc = "Muestras un nivel intermedio de desgaste. Puede que notes más cansancio, cambios en tu ánimo, algo de distancia emocional en el trabajo o un sueño menos reparador. Es un buen momento para actuar antes de que se intensifique.";
       recs = [
-        "Identifica qué tareas o situaciones concretas te agotan más y habla de ello con tu responsable si es posible.",
-        "Prioriza pausas reales durante la jornada y protege tu tiempo de desconexión.",
+        "Identifica en qué área (estrés, burnout, ánimo o sueño) sientes más dificultad y empieza por ahí.",
+        "Prioriza pausas reales durante la jornada y protege tu tiempo de desconexión y de sueño.",
         "Considera hablar con un profesional de salud mental si estas señales persisten más de unas semanas."
       ];
       ctaText = "Este es un buen momento para actuar. En Reset Mental te ayudamos a gestionar el desgaste antes de que se intensifique.";
@@ -573,7 +514,7 @@
     } else {
       level = "Alto"; tagClass = "tag-alto"; color = "var(--rust)";
       title = "Desgaste alto";
-      desc = "Tus respuestas indican un nivel alto de desgaste, con agotamiento marcado, distancia emocional o una caída notable en tu sensación de eficacia. Merece atención pronto, no solo ajustes menores.";
+      desc = "Tu perfil general indica un nivel alto de desgaste, con señales marcadas en varias de las áreas evaluadas: estrés, burnout, bienestar emocional o calidad de sueño. Merece atención pronto, no solo ajustes menores.";
       recs = [
         "Habla con un profesional de salud mental o con tu médico de atención primaria; un nivel alto sostenido puede afectar tu salud física y emocional.",
         "Si es posible, conversa con tu responsable o RR.HH. sobre carga de trabajo, plazos o apoyo disponible.",
@@ -590,20 +531,25 @@
     document.getElementById('scoreBig').textContent = score;
     document.getElementById('scoreBig').style.color = color;
 
+    function colorFor(pct){ return pct < 34 ? 'var(--teal)' : pct < 67 ? 'var(--amber)' : 'var(--rust)'; }
+
+    const subInfo = [
+      { label: "Estrés percibido", pct: stressPct, hint: "Más alto = más estrés" },
+      { label: "Burnout", pct: burnoutPct, hint: "Más alto = más desgaste" },
+      { label: "Bienestar emocional", pct: wellbeingPct, hint: "Más alto = mejor bienestar", protective: true },
+      { label: "Calidad de sueño", pct: 100 - sleepPct, hint: "Más alto = mejor sueño", protective: true }
+    ];
+
     const subWrap = document.getElementById('subscalesWrap');
     subWrap.innerHTML = "";
-    const subInfo = [
-      { key: "exhaustion", label: "Agotamiento emocional" },
-      { key: "cynicism", label: "Distancia / cinismo" },
-      { key: "efficacy", label: "Baja eficacia percibida" }
-    ];
     subInfo.forEach(s => {
-      const pct = Math.round((totals[s.key].sum / totals[s.key].max) * 100);
+      const barColor = s.protective ? colorFor(100 - s.pct) : colorFor(s.pct);
       const row = document.createElement('div');
       row.className = "subscale-row";
       row.innerHTML = `
-        <div class="label-row"><span>${s.label}</span><span>${pct}%</span></div>
-        <div class="subscale-track"><div class="subscale-fill" style="width:${pct}%; background:${pct < 34 ? 'var(--teal)' : pct < 67 ? 'var(--amber)' : 'var(--rust)'}"></div></div>
+        <div class="label-row"><span>${s.label}</span><span>${s.pct}%</span></div>
+        <div class="subscale-track"><div class="subscale-fill" style="width:${s.pct}%; background:${barColor}"></div></div>
+        <div class="subscale-hint">${s.hint}</div>
       `;
       subWrap.appendChild(row);
     });
@@ -626,7 +572,7 @@
   function restart(){
     current = 0;
     answers = new Array(QUESTIONS.length).fill(null);
-    document.getElementById('topEyebrow').textContent = "Autoevaluación · 5 minutos";
+    document.getElementById('topEyebrow').textContent = "Autoevaluación · 5-6 minutos";
     show('screen-intro');
   }
 </script>
