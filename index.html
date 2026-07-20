@@ -157,6 +157,19 @@
   .tag-leve{ background: #E1EEE7; color: #236B54; }
   .tag-moderado{ background: #F4E4D2; color: #9A5A22; }
   .tag-alto{ background: #F1DAD3; color: #93392A; }
+  .tag-severo{ background: #E8C4BC; color: #7A2618; }
+
+  .warning-box{
+    margin-top: 18px;
+    padding: 16px 18px;
+    border-radius: 14px;
+    background: #FBEAE6;
+    border: 1px solid #E8C4BC;
+    color: #7A2618;
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+  .warning-box strong{ display:block; margin-bottom: 4px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; }
 
   .result-title{
     font-family:'Fraunces', serif; font-weight: 600; font-size: clamp(26px, 5vw, 34px); margin: 0 0 12px;
@@ -244,6 +257,11 @@
       <span class="score-of">/ 100 · índice general de desgaste</span>
     </div>
 
+    <div class="warning-box hidden" id="warningBox">
+      <strong>Prioriza tu salud</strong>
+      <span id="warningText"></span>
+    </div>
+
     <div class="subscales" id="subscalesWrap"></div>
 
     <div class="recs">
@@ -327,7 +345,7 @@
     { instrument: "stress", text: "En el último mes, ¿qué tan seguido has sentido que las cosas te están saliendo bien?", options: OPT_FREQ_REVERSE },
     { instrument: "stress", text: "En el último mes, ¿qué tan seguido has sentido que no puedes con todo lo que tienes que hacer?", options: OPT_FREQ_DIRECT },
     { instrument: "stress", text: "En el último mes, ¿qué tan seguido has logrado controlar las dificultades de tu vida?", options: OPT_FREQ_REVERSE },
-    { instrument: "stress", text: "En el último mes, ¿qué tan seguido has sentido que tienes las cosas bajo control?", options: OPT_FREQ_REVERSE },
+    { instrument: "stress", text: "En el último mes, ¿qué tan seguido has sentido que, en general, tienes el control de tu día a día (más allá de problemas puntuales)?", options: OPT_FREQ_REVERSE },
     { instrument: "stress", text: "En el último mes, ¿qué tan seguido te has enojado por cosas que pasaron y que estaban fuera de tu control?", options: OPT_FREQ_DIRECT },
     { instrument: "stress", text: "En el último mes, ¿qué tan seguido has pensado en todo lo que te falta por hacer?", options: OPT_FREQ_DIRECT },
     { instrument: "stress", text: "En el último mes, ¿qué tan seguido has sentido que controlas bien cómo usas tu tiempo?", options: OPT_FREQ_REVERSE },
@@ -488,40 +506,56 @@
     const burnoutPct = Math.round((aePct + dPct + (100 - rpPct)) / 3);
     const score = Math.round((stressPct + burnoutPct + (100 - wellbeingPct) + sleepPct) / 4);
 
-    let level, tagClass, title, desc, recs, color, ctaText, ctaBg;
-    if(score < 34){
+    let level, tagClass, title, desc, recs, color, ctaText, ctaBg, ctaLabel, warningText;
+    if(score <= 25){
       level = "Leve"; tagClass = "tag-leve"; color = "var(--teal)";
-      title = "Desgaste leve";
-      desc = "Tu perfil general muestra un nivel de desgaste bajo entre estrés, burnout, bienestar y sueño. Hay señales puntuales de cansancio, pero en general conservas energía, buen ánimo y buen descanso.";
+      title = "Estrés leve";
+      desc = "Tu perfil general muestra un nivel de estrés bajo entre estrés percibido, burnout, bienestar y sueño. Hay señales puntuales de tensión, pero en general conservas energía, buen ánimo y buen descanso.";
       recs = [
-        "Mantén las pausas, límites y hábitos de sueño que ya te están funcionando.",
-        "Revisa periódicamente cómo te sientes en estas cuatro áreas: el desgaste puede aumentar sin que lo notes.",
-        "Sigue cuidando el descanso, el sueño y el tiempo fuera del trabajo."
+        "Incorpora pausas breves de respiración consciente durante tu jornada, por ejemplo 3-5 minutos cada 90 minutos de trabajo.",
+        "Prueba la técnica Pomodoro (25 minutos de trabajo enfocado + 5 minutos de descanso) para sostener el ritmo sin acumular tensión.",
+        "Sigue cuidando tus hábitos de sueño y tu tiempo de desconexión: son la base de que te sientas así."
       ];
-      ctaText = "Si quieres reforzar tus hábitos de bienestar antes de que el desgaste avance, en Reset Mental podemos ayudarte.";
+      ctaText = "Si quieres reforzar tus hábitos de bienestar antes de que el estrés avance, en Reset Mental podemos ayudarte.";
+      ctaLabel = "Conocer Reset Mental";
       ctaBg = "#E1EEE7";
-    } else if(score < 67){
+    } else if(score <= 50){
       level = "Moderado"; tagClass = "tag-moderado"; color = "var(--amber)";
-      title = "Desgaste moderado";
-      desc = "Muestras un nivel intermedio de desgaste. Puede que notes más cansancio, cambios en tu ánimo, algo de distancia emocional en el trabajo o un sueño menos reparador. Es un buen momento para actuar antes de que se intensifique.";
+      title = "Estrés moderado";
+      desc = "Muestras un nivel intermedio de estrés. Puede que notes más cansancio, cambios en tu ánimo, algo de distancia emocional en el trabajo o un sueño menos reparador. Es un buen momento para prevenir antes de que se intensifique.";
       recs = [
-        "Identifica en qué área (estrés, burnout, ánimo o sueño) sientes más dificultad y empieza por ahí.",
-        "Prioriza pausas reales durante la jornada y protege tu tiempo de desconexión y de sueño.",
-        "Considera hablar con un profesional de salud mental si estas señales persisten más de unas semanas."
+        "Identifica las fuentes concretas de tu estrés y aplica técnicas de prevención: organización de tareas, límites claros y pausas activas.",
+        "Toma uno de los talleres de Reset Mental enfocados en prevención de estrés laboral, antes de que el desgaste avance.",
+        "Refuerza tus rutinas de sueño y de desconexión digital fuera del horario laboral."
       ];
-      ctaText = "Este es un buen momento para actuar. En Reset Mental te ayudamos a gestionar el desgaste antes de que se intensifique.";
+      ctaText = "Es un buen momento para prevenir. Conoce los talleres de Reset Mental enfocados en prevención de estrés laboral.";
+      ctaLabel = "Conocer talleres de Reset Mental";
       ctaBg = "#F4E4D2";
-    } else {
+    } else if(score <= 75){
       level = "Alto"; tagClass = "tag-alto"; color = "var(--rust)";
-      title = "Desgaste alto";
-      desc = "Tu perfil general indica un nivel alto de desgaste, con señales marcadas en varias de las áreas evaluadas: estrés, burnout, bienestar emocional o calidad de sueño. Merece atención pronto, no solo ajustes menores.";
+      title = "Estrés alto";
+      desc = "Tu perfil general indica un nivel alto de estrés, con señales marcadas en varias de las áreas evaluadas. El desgaste ya te está costando energía y bienestar: conviene actuar pronto, con apoyo, no solo con ajustes menores.";
       recs = [
-        "Habla con un profesional de salud mental o con tu médico de atención primaria; un nivel alto sostenido puede afectar tu salud física y emocional.",
-        "Si es posible, conversa con tu responsable o RR.HH. sobre carga de trabajo, plazos o apoyo disponible.",
-        "Busca apoyo en tu entorno cercano: no es necesario resolver esto en soledad."
+        "El curso online \"Desactiva el estrés laboral\" de Reset Mental está diseñado justo para este momento: herramientas prácticas para bajar la intensidad del estrés.",
+        "Las sesiones 1:1 con Reset Mental te dan acompañamiento personalizado si sientes que necesitas apoyo más cercano y a tu medida.",
+        "Habla con tu responsable o RR.HH. sobre tu carga de trabajo si es posible, y protege activamente tus horas de descanso."
       ];
-      ctaText = "Un nivel alto de desgaste merece atención pronto. En Reset Mental ofrecemos acompañamiento profesional para ayudarte a recuperarte.";
+      ctaText = "Este es el momento de actuar con apoyo experto. Descubre el curso \"Desactiva el estrés laboral\" y las sesiones 1:1 de Reset Mental.";
+      ctaLabel = "Conocer curso y sesiones 1:1";
       ctaBg = "#F1DAD3";
+    } else {
+      level = "Severo"; tagClass = "tag-severo"; color = "#7A2618";
+      title = "Estrés severo";
+      desc = "Tu perfil general indica un nivel de estrés muy elevado, con señales importantes en varias de las áreas evaluadas: estrés percibido, burnout, bienestar emocional y calidad de sueño.";
+      recs = [
+        "Busca atención profesional de salud mental lo antes posible: un psicólogo/a, psiquiatra o tu médico de atención primaria pueden ayudarte a evaluar bien lo que está pasando.",
+        "Si sientes que no puedes con la carga actual, habla hoy mismo con alguien de confianza además de buscar ayuda profesional.",
+        "Reset Mental ofrece sesiones 1:1 de acompañamiento, pero a este nivel es prioritario que cuentes también con atención profesional de salud mental."
+      ];
+      warningText = "Un nivel de estrés sostenido tan alto puede afectar seriamente tu salud física y emocional con el tiempo (sueño, ánimo, sistema inmune, relaciones). No se resuelve solo con técnicas de autoayuda: buscar ayuda profesional pronto es la forma más efectiva de cuidarte.";
+      ctaText = "Reset Mental puede acompañarte con sesiones 1:1, además de la atención profesional que te recomendamos buscar cuanto antes.";
+      ctaLabel = "Conocer sesiones 1:1 de Reset Mental";
+      ctaBg = "#FBEAE6";
     }
 
     document.getElementById('resultTag').textContent = level;
@@ -563,7 +597,16 @@
     });
 
     document.getElementById('ctaText').textContent = ctaText;
+    document.getElementById('ctaBtn').textContent = ctaLabel;
     document.getElementById('ctaBox').style.background = ctaBg;
+
+    const warningBox = document.getElementById('warningBox');
+    if(warningText){
+      document.getElementById('warningText').textContent = warningText;
+      warningBox.classList.remove('hidden');
+    } else {
+      warningBox.classList.add('hidden');
+    }
 
     document.getElementById('topEyebrow').textContent = "Resultado de tu autoevaluación";
     show('screen-result');
